@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" fill="none">
+  <defs>
+    <linearGradient id="palmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14092b" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#080314" stop-opacity="0.95" />
+    </linearGradient>
+  </defs>
+  <!-- Background distant Kerala hills & backwater ripples -->
+  <path fill="url(#palmGrad)" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,218.7C672,213,768,171,864,165.3C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+  
+  <!-- Kerala Coconut Tree 1 (Left side) -->
+  <g opacity="0.35">
+    <path d="M120,320 Q135,210 110,120 Q105,90 100,70" stroke="#05010a" stroke-width="12" stroke-linecap="round" fill="none" />
+    <path d="M100,70 Q70,40 20,60 Q60,75 100,70" fill="#06020c" />
+    <path d="M100,70 Q60,20 10,25 Q50,45 100,70" fill="#06020c" />
+    <path d="M100,70 Q90,10 50,5 Q80,25 100,70" fill="#06020c" />
+    <path d="M100,70 Q120,10 160,15 Q130,35 100,70" fill="#06020c" />
+    <path d="M100,70 Q145,25 185,45 Q140,55 100,70" fill="#06020c" />
+    <path d="M100,70 Q150,60 190,95 Q140,85 100,70" fill="#06020c" />
+    <path d="M100,70 Q130,95 160,130 Q125,105 100,70" fill="#06020c" />
+    <path d="M100,70 Q80,95 40,120 Q75,95 100,70" fill="#06020c" />
+  </g>
+
+  <!-- Kerala Coconut Tree 2 (Smaller Left) -->
+  <g opacity="0.25">
+    <path d="M220,320 Q235,240 215,160 Q210,135 205,120" stroke="#05010a" stroke-width="9" stroke-linecap="round" fill="none" />
+    <path d="M205,120 Q175,95 130,110 Q170,125 205,120" fill="#06020c" />
+    <path d="M205,120 Q170,80 120,85 Q160,105 205,120" fill="#06020c" />
+    <path d="M205,120 Q200,70 160,65 Q185,85 205,120" fill="#06020c" />
+    <path d="M205,120 Q225,70 265,75 Q235,95 205,120" fill="#06020c" />
+    <path d="M205,120 Q250,85 285,105 Q245,115 205,120" fill="#06020c" />
+    <path d="M205,120 Q250,115 285,145 Q245,135 205,120" fill="#06020c" />
+  </g>
+
+  <!-- Kerala Coconut Tree 3 (Right side) -->
+  <g opacity="0.35">
+    <path d="M1320,320 Q1300,200 1330,110 Q1338,80 1345,60" stroke="#05010a" stroke-width="13" stroke-linecap="round" fill="none" />
+    <path d="M1345,60 Q1375,30 1425,50 Q1385,65 1345,60" fill="#06020c" />
+    <path d="M1345,60 Q1385,10 1435,15 Q1395,35 1345,60" fill="#06020c" />
+    <path d="M1345,60 Q1355,0 1395,0 Q1365,20 1345,60" fill="#06020c" />
+    <path d="M1345,60 Q1325,0 1285,5 Q1315,25 1345,60" fill="#06020c" />
+    <path d="M1345,60 Q1300,15 1260,35 Q1305,45 1345,60" fill="#06020c" />
+    <path d="M1345,60 Q1295,50 1255,85 Q1305,75 1345,60" fill="#06020c" />
+    <path d="M1345,60 Q1315,85 1285,120 Q1320,95 1345,60" fill="#06020c" />
+    <path d="M1345,60 Q1365,85 1405,110 Q1370,85 1345,60" fill="#06020c" />
+  </g>
+</svg>

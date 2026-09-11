@@ -1,1 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥 RIZZ RATER — Kerala Gen-Z Chat Analyzer & Audio Verdict</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Space+Grotesk:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Interactive Starfield Canvas -->
+  <canvas id="star-canvas"></canvas>
 
+  <!-- Ambient Glowing Blobs -->
+  <div class="ambient-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Kerala Coconut Trees Backdrop -->
+  <div class="kerala-backdrop"></div>
+
+  <!-- Cyber Grid Pattern Overlay -->
+  <div class="cyber-grid-overlay"></div>
+
+  <!-- Subtle Floating Malayalam Words in Background -->
+  <div class="floating-words-container" id="floating-words"></div>
+
+  <div class="app-container">
+    <!-- HERO SECTION -->
+    <header class="hero-section">
+      <div class="kerala-badge">
+        <span class="pulse-dot"></span>
+        🌴 KERALA RIZZ ANALYSIS ENGINE™
+      </div>
+      
+      <div class="main-title-wrapper">
+        <h1 class="main-title">🔥 RIZZ RATER</h1>
+        <div class="scanner-ring"></div>
+      </div>
+
+      <p class="hero-subtitle">"Upload the chat. We judge the game. 💀"</p>
+      <p class="hero-subtitle-ml">"Chat screenshot ഇങ്ങോട്ട് ഇട്... ബാക്കി ഞങ്ങൾ നോക്കിക്കോളാം 😎"</p>
+      <p class="sub-tagline">WhatsApp • Instagram • Messenger • 100% Client-Side Private</p>
+    </header>
+
+    <!-- UPLOAD PANEL -->
+    <section class="glass-panel upload-panel" id="upload-section">
+      <div class="drop-zone" id="drop-zone">
+        <div class="upload-icon-wrapper">📸</div>
+        <h2 class="drop-title">DROP YOUR CHAT HERE</h2>
+        <div class="supported-apps">WhatsApp • Instagram • Messenger</div>
+        <p class="drop-ml-text">"Screenshot ഇട് bro..."</p>
+        <p class="drop-funny-text">Let's investigate the crime scene.</p>
+        
+        <input type="file" id="file-input" class="file-input" accept="image/*">
+      </div>
+
+      <!-- Quick Test Preset Samples -->
+      <div class="sample-chats-section">
+        <div class="sample-chats-label">
+          <span>⚡</span> Or test instantly with a realistic sample chat:
+        </div>
+        <div class="sample-chips" id="sample-chips">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Image Preview Container -->
+      <div class="preview-container" id="preview-container">
+        <div class="preview-header">
+          <div class="preview-title">
+            <span>📷</span> Screenshot Loaded & Ready for OCR
+          </div>
+          <div class="preview-actions">
+            <button type="button" class="btn-secondary-sm" id="btn-reupload">🔄 Change</button>
+            <button type="button" class="btn-secondary-sm" id="btn-remove-img">✕ Remove</button>
+          </div>
+        </div>
+        <div class="preview-body">
+          <img id="preview-img" alt="Chat Screenshot Preview">
+        </div>
+      </div>
+
+      <!-- Live Voice Analysis Toggle & Main Action Button -->
+      <div class="action-btn-row">
+        <div class="toggle-voice-row">
+          <span>🎙️ Voice Analysis Commentary:</span>
+          <label class="switch">
+            <input type="checkbox" id="toggle-live-voice" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <button type="button" class="btn-primary-glow" id="btn-analyze" disabled>
+          <span>🔥</span> ANALYZE THE RIZZ
+        </button>
+      </div>
+
+      <!-- Processing & OCR Scanner Overlay -->
+      <div class="processing-overlay" id="processing-overlay">
+        <div class="cyber-radar"></div>
+        <h3 class="process-step-title" id="process-step-title">Initializing Neural Scanner...</h3>
+        <p class="process-step-ml" id="process-step-ml">Chat scan cheyyunnu... evidence collect cheyyunnu 👀</p>
+        <div class="cyber-progress-bar">
+          <div class="cyber-progress-fill" id="cyber-progress-fill"></div>
+        </div>
+        <div class="process-status-text" id="process-status-text">Stage 1 of 4: Canvas optimization</div>
+      </div>
+    </section>
+
+    <!-- DETECTED CHAT SECTION (Collapsible) -->
+    <section class="glass-panel detected-chat-panel" id="detected-chat-panel" style="display: none;">
+      <div class="accordion-header" id="accordion-header">
+        <div class="accordion-title">
+          <span>🔍</span> DETECTED CHAT
+          <span class="badge-confidence" id="ocr-confidence-badge">OCR: 94.2% Confident</span>
+        </div>
+        <span class="accordion-arrow">▼</span>
+      </div>
+      
+      <div class="accordion-content" id="accordion-content">
+        <div class="chat-bubble-stream" id="chat-bubble-stream">
+          <!-- Parsed bubbles rendered here -->
+        </div>
+
+        <div class="low-confidence-banner" id="low-confidence-banner">
+          <span>⚠️</span>
+          <span>"Bro, screenshot quality kandittu OCR polum resign cheythu 💀" (You can review or edit detected text below)</span>
+        </div>
+
+        <textarea class="ocr-raw-fallback" id="ocr-raw-text" placeholder="Raw OCR transcript..." rows="3"></textarea>
+      </div>
+    </section>
+
+    <!-- RESULTS SECTION -->
+    <main class="results-section" id="results-section">
+      <!-- HERO SCORE CARD -->
+      <div class="glass-panel score-hero-card">
+        <div class="score-title-label">FINAL RIZZ RATING</div>
+        <div class="score-odometer-container">
+          <span class="score-number" id="score-number">0.0</span>
+          <span class="score-denominator">/ 10</span>
+        </div>
+        <div class="personality-badge" id="personality-badge">
+          👑 RIZZ GOD
+        </div>
+        <div class="score-ml-reaction" id="score-ml-reaction">
+          "MWONEEE... ithu normal game alla 🔥"
+        </div>
+      </div>
+
+      <!-- 6 DETAILED STATS CARDS -->
+      <h2 class="section-headline"><span>📊</span> DETAILED STATS</h2>
+      <div class="stats-grid">
+        <!-- Flirting -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-title"><span>🔥</span> Flirting</div>
+            <div class="stat-score-val" id="stat-flirt-val">0.0 / 10</div>
+          </div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" id="stat-flirt-bar"></div>
+          </div>
+          <div class="stat-explanation" id="stat-flirt-desc">Smooth aanu... Kochi marine drive level charm detected.</div>
+        </div>
+
+        <!-- Banter -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-title"><span>😂</span> Banter</div>
+            <div class="stat-score-val" id="stat-banter-val">0.0 / 10</div>
+          </div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" id="stat-banter-bar"></div>
+          </div>
+          <div class="stat-explanation" id="stat-banter-desc">Comedy department approved 😂</div>
+        </div>
+
+        <!-- Their Interest -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-title"><span>👀</span> Their Interest</div>
+            <div class="stat-score-val" id="stat-interest-val">0.0 / 10</div>
+          </div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" id="stat-interest-bar"></div>
+          </div>
+          <div class="stat-explanation" id="stat-interest-desc">Suspiciously positive signals detected 👀</div>
+        </div>
+
+        <!-- Confidence -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-title"><span>😎</span> Confidence</div>
+            <div class="stat-score-val" id="stat-conf-val">0.0 / 10</div>
+          </div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" id="stat-conf-bar"></div>
+          </div>
+          <div class="stat-explanation" id="stat-conf-desc">Bro knows what he's doing.</div>
+        </div>
+
+        <!-- Delulu -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-title"><span>🤡</span> Delulu</div>
+            <div class="stat-score-val" id="stat-delulu-val">0.0 / 10</div>
+          </div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" id="stat-delulu-bar"></div>
+          </div>
+          <div class="stat-explanation" id="stat-delulu-desc">Reality left the chat.</div>
+        </div>
+
+        <!-- Red Flags -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-title"><span>🚩</span> Red Flags</div>
+            <div class="stat-score-val" id="stat-flags-val">0.0 / 10</div>
+          </div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" id="stat-flags-bar"></div>
+          </div>
+          <div class="stat-explanation" id="stat-flags-desc">Warning lights mostly sleeping. 🚨</div>
+        </div>
+      </div>
+
+      <!-- RIZZ DNA & CHAT DIAGNOSIS ROW -->
+      <div class="two-col-grid">
+        <!-- RIZZ DNA -->
+        <div class="glass-panel dna-card">
+          <div class="stat-title"><span>🧬</span> YOUR RIZZ DNA</div>
+          <div class="dna-archetype-name" id="dna-name">THE SMOOTH TALKER</div>
+          <p class="dna-description" id="dna-desc">Effortlessly switching between subtle teasing and cinematic confidence.</p>
+        </div>
+
+        <!-- CHAT DIAGNOSIS -->
+        <div class="glass-panel diagnosis-card">
+          <div class="stat-title"><span>🩺</span> CHAT DIAGNOSIS</div>
+          <div>
+            <span class="diagnosis-badge" id="diagnosis-title">❤️ MUTUAL VIBES</span>
+          </div>
+          <p class="dna-description" id="diagnosis-desc">Both sides exchanging strong positive frequencies.</p>
+          <div class="diagnosis-disclaimer">Diagnostic purely for entertainment purposes. No relationship advice implied.</div>
+        </div>
+      </div>
+
+      <!-- RIZZ ARC TIMELINE -->
+      <div class="glass-panel arc-panel">
+        <div class="stat-title"><span>📈</span> YOUR RIZZ ARC</div>
+        <div class="arc-timeline-container" id="arc-timeline-container">
+          <div class="arc-timeline-line"></div>
+          <!-- Steps generated by JS -->
+        </div>
+      </div>
+
+      <!-- BIGGEST W & BIGGEST FUMBLE -->
+      <div class="w-fumble-grid">
+        <div class="glass-panel w-card">
+          <div class="stat-title" style="color: var(--neon-green);"><span>🏆</span> BIGGEST W</div>
+          <div class="moment-quote-box" id="biggest-w-quote">"Njan direct parayan aanu ishtam..."</div>
+          <div class="moment-reaction" id="biggest-w-reaction">Ee part aanu scene aakkiyathu bro 🔥</div>
+        </div>
+
+        <div class="glass-panel fumble-card">
+          <div class="stat-title" style="color: var(--neon-pink);"><span>💀</span> BIGGEST FUMBLE</div>
+          <div class="moment-quote-box" id="biggest-fumble-quote">"Bro had the opportunity and chose violence."</div>
+          <div class="moment-reaction" id="biggest-fumble-reaction">Ivide aanu nee scene kalanjathu 😂</div>
+        </div>
+      </div>
+
+      <!-- KERALA RIZZ VERDICT & CINEMATIC DIALOGUE -->
+      <div class="glass-panel verdict-panel">
+        <div class="verdict-header">
+          <span>🌴</span> KERALA RIZZ VERDICT
+        </div>
+        <div class="verdict-text-ml" id="kerala-verdict-text">
+          "Da mwone... ithu kollam ketto 🔥"
+        </div>
+        <div class="cinematic-quote" id="cinematic-quote">
+          <span>🎬</span> "Scene ivide thudangunnu."
+        </div>
+      </div>
+
+      <!-- AI VOICE VERDICT -->
+      <section class="glass-panel voice-verdict-panel">
+        <div class="accordion-title" style="color: #ffffff; font-size: 1.2rem;">
+          <span>🎙️</span> AI VOICE VERDICT
+        </div>
+        
+        <div class="voice-script-box" id="voice-script-box">
+          Loading AI voice transcript...
+        </div>
+
+        <div class="audio-controls-row">
+          <div class="audio-buttons">
+            <button type="button" class="btn-audio-play" id="btn-audio-play">
+              <span id="audio-icon">🔊</span>
+              <span id="audio-label">HEAR MY RIZZ</span>
+            </button>
+            <button type="button" class="btn-audio-stop" id="btn-audio-stop">
+              <span>⏹️</span> STOP
+            </button>
+          </div>
+
+          <!-- Animated Audio Waveform -->
+          <div class="waveform-visualizer" id="waveform-visualizer">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+          </div>
+        </div>
+
+        <!-- Voice Settings Drawer -->
+        <div class="voice-settings-box">
+          <div class="voice-settings-header" id="voice-settings-toggle">
+            <span>⚙️</span> VOICE SETTINGS ▼
+          </div>
+          <div class="voice-controls-grid" id="voice-controls-grid">
+            <div class="voice-control-group">
+              <label class="voice-control-label" for="voice-select">Voice</label>
+              <select id="voice-select" class="voice-select"></select>
+            </div>
+            <div class="voice-control-group">
+              <label class="voice-control-label" for="voice-speed">Speed (<span id="speed-val">0.95</span>x)</label>
+              <input type="range" id="voice-speed" class="voice-range" min="0.6" max="1.4" step="0.05" value="0.95">
+            </div>
+            <div class="voice-control-group">
+              <label class="voice-control-label" for="voice-pitch">Pitch (<span id="pitch-val">1.0</span>)</label>
+              <input type="range" id="voice-pitch" class="voice-range" min="0.5" max="1.5" step="0.1" value="1.0">
+            </div>
+            <div class="voice-control-group">
+              <label class="voice-control-label" for="voice-volume">Volume (<span id="vol-val">100</span>%)</label>
+              <input type="range" id="voice-volume" class="voice-range" min="0.1" max="1.0" step="0.05" value="1.0">
+            </div>
+          </div>
+          <div class="voice-unavailable-alert" id="voice-unavailable-alert">
+            Voice feature unavailable on this browser 😭 (Speech synthesis not supported)
+          </div>
+        </div>
+      </section>
+
+      <!-- RESET / TRY ANOTHER CHAT -->
+      <div class="reset-section">
+        <button type="button" class="btn-reset" id="btn-reset">
+          <span>🔄</span> TRY ANOTHER CHAT
+        </button>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+      <div>🔥 RIZZ RATER • Kerala Gen-Z Dating Chat Intelligence</div>
+      <div>100% Client-Side Privacy • No servers, no tracking, pure comedy & vibe.</div>
+    </footer>
+  </div>
+
+  <!-- Tesseract.js for In-Browser Optical Character Recognition -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+  <!-- Application Modules -->
+  <script src="js/sample_chats.js"></script>
+  <script src="js/ocr.js"></script>
+  <script src="js/analyzer.js"></script>
+  <script src="js/speech.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
